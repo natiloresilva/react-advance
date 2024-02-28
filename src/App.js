@@ -1,5 +1,6 @@
 import "./App.css";
 import { CustomButton } from "./CustomButton";
+import UseStateHook from "./hooks/UseStateHook";
 
 //Función impura: Siempre cambia su valor de retorno
 const MyDate = () => new Date().toLocaleString();
@@ -13,6 +14,7 @@ const App = () => {
       <p>The current time and date is: {MyDate()}</p>
       <MyComponente miProp={"Galileo"} />
       <CustomButton onClick={() => console.log("Enviado")}>Send</CustomButton>
+      <UseStateHook />
     </>
   );
 };
