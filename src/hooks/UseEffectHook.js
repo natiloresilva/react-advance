@@ -1,14 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CustomButton } from "../CustomButton";
-
-// Reglas Hooks
-// No se llaman en loops, ni condiciones, if, while, etc
-// Siempre se colocan en el nivel más alto del componente
-// Sólo se llama en 2 partes:
-// Componentes de react y custom hooks
-// Cuando creemos un custom hook use*
-
-//Custom Hook example
 
 const useContador = (initValue) => {
   const [years, setYears] = useState(0);
@@ -21,15 +12,27 @@ const useContador = (initValue) => {
   return [years, increase, decrease];
 };
 
-const UseStateHook = () => {
+const Interval = ({ contador }) => {
+  useEffect(() => {
+    const i = setInterval(() => console.log(contador), 1000);
+    return () => clearInterval(i);
+  }, [contador]);
+  return <p>Intervalo</p>;
+};
+
+const UseEffectHook = () => {
   const [years, increase, decrease] = useContador(0);
+  useEffect(() => {
+    document.title = years;
+  }, [years]);
   return (
     <>
       <p>How many years have you been working with React: {years}</p>
       <CustomButton onClick={increase}>Increase</CustomButton>
       <CustomButton onClick={decrease}>Decrease</CustomButton>
+      <Interval contador={years} />
     </>
   );
 };
 
-export default UseStateHook;
+export default UseEffectHook;
