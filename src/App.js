@@ -1,5 +1,6 @@
 import "./App.css";
 import { CustomButton } from "./CustomButton";
+import FormTest from "./forms/uncontrolledComponents";
 import UseEffectHook from "./hooks/UseEffectHook";
 import UseReducerHook from "./hooks/UseReducerHook";
 import UseRefHook from "./hooks/UseRefHook";
@@ -20,6 +21,7 @@ const App = () => {
       {/* <UseEffectHook /> */}
       {/* <UseReducerHook /> */}
       {/* <UseRefHook /> */}
+      <FormTest />
     </>
   );
 };
